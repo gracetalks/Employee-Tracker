@@ -20,7 +20,7 @@ function start(){
         name: 'start',
         type: 'list',
         message: 'Welcome please add department',
-        choices:['Add Department', 'Add Role', 'Add Employee', 'Remove Department', 'Remove Role', 'Remove Employee', 'View Department','Exit']
+        choices:['Add Department', 'Add Role', 'Add Employee', 'Remove Department', 'Remove Role', 'Remove Employee', 'View Department', 'View Role', 'View Employee', 'Exit']
     })
     .then(function(answer) {
         console.log(answer);
@@ -36,8 +36,20 @@ function start(){
         else if(answer.start === 'Remove Department'){
             removeDepartment();
         }
+        else if(answer.start === 'Remove Role'){
+            removeRole();
+        }
+        else if(answer.start === 'Remove Employee'){
+            removeEmployee();
+        }
         else if(answer.start === 'View Department'){
             viewDepartment();
+        }
+        else if(answer.start === 'View Role'){
+            viewRole();
+        }
+        else if(answer.start === 'View Employee'){
+            viewEmployee();
         }
         else{
             connection.end();
@@ -78,7 +90,29 @@ function addEmployee() {
     })   
 }
 function removeDepartment(){
-    console.log('hello')
+    inquirer.prompt({
+        name: 'Employee_Name'
+        type: 'input',
+        message: 'Which department do you want to remove?'
+    })
+    .then(function(answer){
+        console.log(answer.Employee_Name)
+    })
+}
+function removeRole(){
+    inquirer.prompt({
+        name: 'Role_Title'
+        type: 'input',
+        message: 'Which role do you want to remove?'
+    })
+    .then(function(answer){
+        console.log(answer.Role_Title)
+    })
+}
+function removeEmployee(){
+    inquirer.prompt({
+        name
+    })
 }
 
 function viewDepartment(){
