@@ -91,7 +91,7 @@ function addEmployee() {
 }
 function removeDepartment(){
     inquirer.prompt({
-        name: 'Employee_Name'
+        name: 'Department_Name',
         type: 'input',
         message: 'Which department do you want to remove?'
     })
@@ -101,7 +101,7 @@ function removeDepartment(){
 }
 function removeRole(){
     inquirer.prompt({
-        name: 'Role_Title'
+        name: 'Role_Title',
         type: 'input',
         message: 'Which role do you want to remove?'
     })
@@ -111,7 +111,12 @@ function removeRole(){
 }
 function removeEmployee(){
     inquirer.prompt({
-        name
+        name: 'Employee_Name',
+        type: 'input',
+        message: 'Which employee do you want to remove?'
+    })
+    .then(function(answer){
+        console.log(answer.Employee_Name)
     })
 }
 
