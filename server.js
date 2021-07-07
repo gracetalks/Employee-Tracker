@@ -19,7 +19,7 @@ function start(){
     inquirer.prompt({
         name: 'start',
         type: 'list',
-        message: 'Welcome please add department',
+        message: 'Welcome! Please Make a Choice:',
         choices:['Add Department', 'Add Role', 'Add Employee', 'Remove Department', 'Remove Role', 'Remove Employee', 'View Department', 'View Role', 'View Employee', 'Exit']
     })
     .then(function(answer) {
