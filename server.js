@@ -96,7 +96,7 @@ function removeDepartment(){
         message: 'Which department do you want to remove?'
     })
     .then(function(answer){
-        console.log(answer.Employee_Name)
+        console.log(answer.Department_Name)
     })
 }
 function removeRole(){
@@ -122,6 +122,12 @@ function removeEmployee(){
 
 function viewDepartment(){
     connection.query('select * from department', function (err, result, fields) {
+        if(err) throw err;
+        console.table(result);
+    })
+}
+function viewRole(){
+    connection.query('select * from role', function (err, result, fields) {
         if(err) throw err;
         console.table(result);
     })
