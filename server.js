@@ -132,3 +132,9 @@ function viewRole(){
         console.table(result);
     })
 }
+function viewEmployee(){
+    connection.query('select * from employee', function (err, result, fields) {
+        if(err) throw err;
+        console.table(result);
+    })
+}
