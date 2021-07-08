@@ -57,6 +57,14 @@ function start(){
     })
 }
 
+function updateManager() {
+    inquirer.prompt({
+        name: 'Update_Manager',
+        type
+    })
+}
+
+
 function addRole() {
     inquirer.prompt({
         name: 'Role_Title',
@@ -92,31 +100,41 @@ function addEmployee() {
 function removeDepartment(){
     inquirer.prompt({
         name: 'Department_Name',
-        type: 'input',
-        message: 'Which department do you want to remove?'
+        type: 'list',
+        message: 'Which department do you want to remove?',
+        choices: ["Engineering", "Human Resources", "Business", "Accounting", "Sales", "Communications"]
     })
-    .then(function(answer){
-        console.log(answer.Department_Name)
-    })
+    //.then(function(answer){
+        //console.log(answer.Department_Name)
+   // })
 }
 function removeRole(){
     inquirer.prompt({
         name: 'Role_Title',
-        type: 'input',
-        message: 'Which role do you want to remove?'
+        type: 'list',
+        message: 'Which role do you want to remove?',
+        choices: ["Director of HR", "Director of Engineering", "Director of Accounting", "Sales Director", "Director of Business Development", "Director of Communications", "Human Resources Manager", "Mechanical Engineer", "Junior Accountant", "Senior Accountant"]
     })
-    .then(function(answer){
-        console.log(answer.Role_Title)
-    })
+    //.then(function(answer){
+        //console.log(answer.Role_Title)
+    //})
 }
 function removeEmployee(){
     inquirer.prompt({
         name: 'Employee_Name',
         type: 'input',
-        message: 'Which employee do you want to remove?'
+        message: 'What is the id of the employee you would like to remove?',
     })
     .then(function(answer){
-        console.log(answer.Employee_Name)
+        let query = `delete from employee where id = ${answer.Employee_Name}`
+        connection.query(query, function (err, result) {
+            if(err) {
+                throw err
+            }
+            // console.log(result)
+            console.log(result.affectedRows+' employee with id '+answer.Employee_Name+' was successfully deleted!' )
+            start()
+        })
     })
 }
 
