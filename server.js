@@ -115,9 +115,16 @@ function removeRole(){
         message: 'Which role do you want to remove?',
         choices: ["Director of HR", "Director of Engineering", "Director of Accounting", "Sales Director", "Director of Business Development", "Director of Communications", "Human Resources Manager", "Mechanical Engineer", "Junior Accountant", "Senior Accountant"]
     })
-    //.then(function(answer){
-        //console.log(answer.Role_Title)
-    //})
+    .then(function(answer){
+        let query = `delete from role where id = ${answer.Role_Title}`
+        connection.query(query, function (err, result) {
+            if(err) {
+                throw err
+            }
+            console.log(result.affectedRows+'role with id '+answer.Role_Title+' was successfully deleted!' )
+            start()
+        })
+    })
 }
 function removeEmployee(){
     inquirer.prompt({
