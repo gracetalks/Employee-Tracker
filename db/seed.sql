@@ -3,8 +3,8 @@ INSERT INTO department (id,name) values ('1', 'Engineering');
 INSERT INTO department (id,name) values ('2', 'Human Resources');
 INSERT INTO department (id,name) values ('3', 'Business');
 INSERT INTO department (id,name) values ('4', 'Accounting');
-INSERT INTO department (id,name) values ('5', 'Sales');
-INSERT INTO department (id,name) values ('6', 'Communications');
+UPDATE department set name = 'Sales' where id = 5;
+UPDATE department set name = 'Communications' where id = 6;
 
 
 INSERT INTO role (id, title, salary, department_id) values ('11', 'Director of HR', '90000.00', '2');
