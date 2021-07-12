@@ -17,4 +17,4 @@ Below is an image of the Employee Tracker application deployed Department and Ro
 
 ## Deployed Application
 Here is a link to the walkthrough video of the Employee Tracker deployed application:
-<a href=<iframe src="https://drive.google.com/file/d/13HIEVBU6oEWJ37ZmKxACx2vCrMCZoEG9/preview" width="640" height="480"></iframe>>Employee Tracker</a> 
+<a href=https://drive.google.com/file/d/13HIEVBU6oEWJ37ZmKxACx2vCrMCZoEG9/view>Employee Tracker Application</a> 
