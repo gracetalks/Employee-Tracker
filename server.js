@@ -24,7 +24,7 @@ function start(){
             'Add Department', 
             'Add Role', 
             'Add Employee', 
-            'Remove Department', 'Remove Role', 'Remove Employee', 'View Department', 'View Role', 'View Employee', 'Update Department', 'Update Manager', 'Exit']
+            'Remove Department', 'Remove Role', 'Remove Employee', 'View Department', 'View Role', 'View Employee', 'Update Department', 'Update Role', 'Update Manager', 'Exit']
     })
     .then(function(answer) {
         console.log(answer);
@@ -57,6 +57,9 @@ function start(){
         }
         else if(answer.start === 'Update Department'){
             updateDepartment();
+        }
+        else if(answer.start === 'Update Role'){
+            updateRole();
         }
         else if(answer.start === 'Update Manager'){
             updateManager()
@@ -179,37 +182,6 @@ function updateManager() {
         })
         clearInterval(interval)
     },2000)
-}
-function updateRole() {
-    inquirer.prompt([{
-        name: 'Role_id',
-        type: 'input',
-        message: 'What role id would you like to update?'
-    },
-    {
-        name: 'Role_Title',
-        type: 'input',
-        message: 'Please insert your updated role title.'
-    }])
-    .then(function(answer){
-        let query = connection.query(
-            "UPDATE role SET ? WHERE ?",
-            [
-                {
-                    name:answer.Role_Title
-                },
-                {
-                    id:answer.Role_id    
-                }
-            ],
-            function(err, res){
-                if (err) throw err;
-                console.log(answer.Role_Title+' title was successfully added!' )
-                let interval=setInterval(() => {start(); clearInterval(interval);}, 2000)
-               
-            }
-        )
-    })
 }
 
 function addRole() {
